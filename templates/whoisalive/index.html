@@ -1,0 +1,16 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'whoisalive/style.css' %}">
+    <video id="bgVideo" autoplay loop poster="{% static 'whoisalive/images/image.png' %}">
+      <!-- Video is embedded in the WEBM format -->
+      <source type="video/webm" src="{% static 'whoisalive/images/video.webm' %}">
+    </video>
+{% if hero_list %}
+    <ul>
+    {% for hero in hero_list %}
+        <li><a href="{% url 'whoisalive:detail' hero.id %}">{{ hero.hero_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>There be no heroes.</p>
+{% endif %}

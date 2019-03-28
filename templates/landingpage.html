@@ -1,0 +1,65 @@
+{% load static %}
+<!Doctype html>
+<html>
+<head>
+<link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'whoisalive/style.css' %}">
+<title>End Game: Who is alive?</title>
+
+
+
+</head>
+<body>
+  <script src="{% static 'whoisalive/jquery.min.js' %}"></script>
+
+<!--<script src="{% static 'whoisalive/jquery-2.2.4.min.js' %}"></script>
+  <script type="text/javascript">
+    $(window).scroll(function(){
+    if($(window).scrollTop() <= 1000){
+      $('.btn').addClass('animated infinite bounce');
+    } else {
+      $('.btn').removeClass('animated infinite bounce');
+    }
+    });
+  </script>
+ <!--   <video id="bgVideo" autoplay loop poster="{% static 'images/abackground.jpg' %}">
+      <!-- Video is embedded in the WEBM format --
+      <source type="video/webm" src="{% static 'whoisalive/images/videox.webm' %}"><img src="{% static 'whoisalive/images/downok.gif' %}" />
+    </video>
+
+	<a href="{% url 'index' %}">Home</a>.
+-->
+	{% block content %}
+	{% endblock %}
+  
+<main class="wrapper">
+  
+  <section class="section parallax bg1">
+
+    <div class="box">
+      <h1>Avengers: End Game</h1>
+      <h2>Who is alive?</h2>
+      <h3>A HIT237 Assignment</h3>
+      <h4>by Eric Hilario</h4>
+      <h4>121102</h4>
+    </div>
+</section>
+
+
+  <section class="section static">
+      <div>
+      <p>Before I see the movie that is the culmination of my childhood (sorry DC fans), I wanted to pay homage to the heroes whose task is to save, ehem, "avenge the fallen".</p>
+    </div>
+  </section>
+
+  <section class="section parallax bg2">
+    <h1>SO FWUFFY AWWW</h1>
+  </section>
+<div class="top-panel"></div>
+<div class="footer">FOOTER</div>
+</main>
+
+
+
+</body>
+</html>

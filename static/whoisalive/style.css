@@ -1,0 +1,229 @@
+/* Tiny reset thingy */
+body,html{margin:0;padding:0;height: 100vh;font-family: "Trebuchet MS", Verdana, sans-serif;}
+h1, h2, h3, h4 {
+  line-height: 1px;
+  color: rgba(255,255,255,0.8);
+  text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
+                 0px -5px 35px rgba(255,255,255,0.3);
+}
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+h2 {
+  font-size: 2rem;
+  font-style: italic;
+}
+h3 {
+  margin-top: 5%;
+}
+.wrapper {
+  /* The height needs to be set to a fixed value for the effect to work.
+   * 100vh is the full height of the viewport. */
+  height: 100vh;
+  /* The scaling of the images would add a horizontal scrollbar, so disable x overflow. */
+  overflow-x: hidden;
+  /* Enable scrolling on the page. */
+  overflow-y: auto;
+  /* Set the perspective to 2px. This is essentailly the simulated distance from the viewport to transformed objects.*/
+  perspective: 2px;
+  background-color: #050409;
+  
+}
+
+.btn {
+  position: relative;
+  top: 50%;
+  height: 100px;
+  width: 200px;
+  text-align: center;
+  line-height: 100px;
+  font-size: 24px;
+  background: #7AD3EC;
+  border-radius: 5px;
+  margin: auto;
+}
+
+
+
+.section {
+  /* Needed for children to be absolutely positioned relative to the parent. */
+  position: relative;
+  /* The height of the container. Must be set, but it doesn't really matter what the value is. */
+  height: 100vh;
+  
+  /* For text formatting. */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 0 0 0px #000;
+  
+}
+
+.box {
+  width: 100%;
+  margin-bottom: 0px;
+  
+  
+  align-items: center;
+  justify-content: center;
+  webkit-animation: 3s .25s fade backwards ease-out;
+  animation: 3s .25s fade backwards ease-out;
+  
+  text-align:center;
+}
+
+.parallax::after {
+  /* Display and position the pseudo-element */
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  
+  /* Move the pseudo-element back away from the camera,
+   * then scale it back up to fill the viewport.
+   * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
+  transform: translateZ(-1px) scale(1.5);
+  /* Force the background image to fill the whole element. */
+  background-size: 100%;
+  /* Keep the image from overlapping sibling elements. */ 
+  z-index: -1;
+}
+
+@media screen and (min-width: 600px) {
+ 
+  .footer {
+    margin-top:18%;
+    background-color: red;
+    color: white;
+  }
+}
+
+/* The styling for the static div. */
+.static {
+  background: url('images/logo.png') no-repeat;
+  background-size: 100%;
+}
+
+/* Sets the actual background images to adorable kitties. This part is crucial. */
+.bg1::after {
+  background-repeat: no-repeat;
+  background-image: url('images/background.jpg');
+  background-color: #050409;
+  background-size: cover;
+  background-position: center;
+}
+
+.bg2::after {
+  background-repeat: no-repeat;
+  background-image: url('images/background2.jpg');
+  background-size: cover;
+  background-color: #050409;
+  background-position: center;
+}
+.footer {
+  margin-top: 5%;
+  margin-left: 2%;
+  padding-top: 2%;
+  background-color: #050409;
+  color: #333;
+
+}
+
+/*
+li, a {
+	text-decoration: underline;
+	color: white;
+}
+
+li a {
+    display: block;
+    padding: 5px 5px 5px 0.5em;
+    border-left: 10px solid #1958b7;
+    border-right: 10px solid #508fc4;
+    background-color: #2175bc;
+    color: #fff;
+    text-decoration: none;
+    width: 100%;
+}
+
+li a:hover {
+	color: white;	
+}
+
+/* relative paths to link static files between each other *
+body {
+    background: black url("images/background.jpg") no-repeat;
+	background-size: 100%;
+}
+
+video#bgVideo {
+  position: absolute; // Play the video in full screen mode
+  top: 0px; 
+  left: 0px; 
+  min-width: 100%; 
+  min-height: 100%;
+  z-index: -1; // Put the video behind all other elements
+}
+
+@media only screen and (max-width: 768px) {
+  video {
+    display:none;
+  }
+  body{
+    background-image:url(“images/background.jpg”);
+	background-size: 100%;
+  }
+}
+*/
+
+div p {
+  padding-top: 50px;
+  color: #fff;
+  background-color:;
+}
+
+.top-panel {
+  width: 100%;
+  height: 0;
+  
+}
+
+.top-panel::before{
+  content: '╲╱';
+  color: #fff;
+  position: absolute;
+  opacity: 0.7;
+  text-shadow: 0 0 6px rgba(0,0,0,0.5);
+  font-size: 20px;
+  width: 60px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 10px;
+  bottom: 20px;
+  left: 50%;
+  margin-left: -30px;
+  animation: bounce 3s ease infinite;
+}
+.top-panel::after{
+  content: ' ';
+  height: 0;
+  width:0;
+  
+}
+@keyframes bounce {
+  50% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes fade{from{transform:translateY(.25em);opacity:0}}@keyframes fade{from{transform:translateY(.25em);opacity:0}}
+
+.arrow {}
