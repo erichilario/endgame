@@ -27,8 +27,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('whoisalive/', include('whoisalive.urls')),
     #path('', RedirectView.as_view(url='/whoisalive/', permanent=True)),
-    #path('', views.IndexView.as_view(), name='index'),
-    path('', views.index, name='index'),
+    path('', views.IndexView.as_view(), name='index'),
+    #path('', views.index, name='index'),
     #path('<int:pk>/', views.DetailView.as_view(), name='detail'),
     #path('<int:hero_id>/')
 

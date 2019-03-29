@@ -3,6 +3,7 @@ from django.urls import reverse
 
 class Hero(models.Model):
 	hero_name = models.CharField(max_length=50)
+	hero_image = models.ImageField(upload_to='pics', default='static/whoisalive/images/background2.jpg')
 	
 	def __str__(self):
 		return self.hero_name

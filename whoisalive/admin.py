@@ -14,7 +14,7 @@ class HeroAdmin(admin.ModelAdmin):
 	def hero_trivia_count(self,obj):
 		return obj.trivia_set.count()
 	hero_trivia_count.short_description = "Trivia Count"
-	list_display = ['hero_name', 'id', 'hero_trivia_count']
+	list_display = ['hero_name', 'id', 'hero_trivia_count', 'hero_image']
 	ordering = ('id',)
 
 admin.site.register(Hero, HeroAdmin)
