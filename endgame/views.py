@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 
-from whoisalive.models import Hero, Trivia
+from whoisalive.models import Hero, Power
 
 class IndexView(generic.ListView): #display a list of objects
 	context_object_name = 'hero_list'

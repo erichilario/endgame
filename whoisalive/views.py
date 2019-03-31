@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 
-from whoisalive.models import Hero, Trivia
+from whoisalive.models import Hero, Power
 
 class IndexView(generic.ListView): #display a list of objects
 	context_object_name = 'hero_list'
@@ -27,6 +27,22 @@ class IndexView(generic.ListView): #display a list of objects
 		# is less than or equal to -aka earlier than or equal to- timezone.now
 		return Hero.objects.all()
 
+
+
 class DetailView(generic.DetailView):
 	model = Hero
 	template_name = 'whoisalive/detail.html'
+	def get_context_data(self, **kwargs):
+		context = super(DetailView, self).get_context_data(**kwargs)
+		context['hero_list'] = Hero.objects.all()
+		context['power_list'] = Power.objects.order_by('id')
+		return context
+"""
+class DetailView(generic.DetailView):
+	num_power = Power.objects.all().count()
+	def get_context_data(self):
+		context = {
+			'num_power': num_power,
+		}
+		return render(request, template_name, context=context)
+"""

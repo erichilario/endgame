@@ -1,3 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}End Game: Who is alive? - {{ hero.hero_name }}{% endblock %}
+{% block content %}
 <h1>{{ hero.hero_name }}</h1>
 
+<!--      UNCOMMENT THIS FOR V1 COMIC-STYLE
+<div class="detail-wrapper">
+  <div class="news-item hero-item" style="background: url('/{{ hero.hero_image }}');">
+  </div>
+
+
+{% for power in power_list %}
+	
+  <div class="news-item standard-item" style="background: black url('/{{power.power_image}}')"><p class="item-desc">{{power.power_text}}</p></div>
+{% endfor %}
+</div>
+-->
+<article class="comic">
+{% for power in power_list %}
+
+  <div class="panel" style="background: black url('/{{power.power_image}}')">
+    <p class="text bottom-right">{{power.power_text}}</p>
+  </div>
+{% endfor %}
+<!--
+  <div class="panel">
+    <p class="text top-left">Try resizing...</p>
+    <p class="text bottom-right">...it's responsive</p>
+  </div>
+  <div class="panel">
+    <p class="text top-right">A speech bubble</p>
+  </div>
+  <div class="panel"></div>
+  <div class="panel"></div>
+  <div class="panel"></div>
+  <div class="panel"></div>
+  <div class="panel"></div>
+  <div class="panel">
+    <p class="text bottom-right">THE END</p>
+  </div>
+-->
+</article>
+<img src="/{{ hero.hero_image }}" />
+{% for power in power_list %}
+	<p>{{power.power_text}}</p>
+	<img class="detailview" src="/{{power.power_image}}" />
+{% endfor %}
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+{% endblock %}

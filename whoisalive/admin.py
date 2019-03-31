@@ -1,26 +1,27 @@
 #admin endgame 1
 
 from django.contrib import admin
-from whoisalive.models import Hero, Trivia
+from whoisalive.models import Hero, Power
 
 #admin.site.register(Hero)
-#admin.site.register(Trivia)
+#admin.site.register(Power)
 
-class TriviaInstanceInline(admin.TabularInline):
-	model = Trivia
+class PowerInstanceInline(admin.TabularInline):
+	model = Power
 
 class HeroAdmin(admin.ModelAdmin):
-	inlines = [TriviaInstanceInline]
-	def hero_trivia_count(self,obj):
-		return obj.trivia_set.count()
-	hero_trivia_count.short_description = "Trivia Count"
-	list_display = ['hero_name', 'id', 'hero_trivia_count', 'hero_image']
+	inlines = [PowerInstanceInline]
+	def hero_power_count(self,obj):
+		return obj.power_set.count()
+	hero_power_count.short_description = "Power Count"
+
+	list_display = ['hero_name', 'id', 'hero_power_count', 'hero_image', 'hero_description']
 	ordering = ('id',)
 
 admin.site.register(Hero, HeroAdmin)
 
-#@admin.register(Trivia)
-#class TriviaAdmin(admin.ModelAdmin):
-#	list_display = ('trivia_text', 'hero', 'trivia_image')
+#@admin.register(Power)
+#class PowerAdmin(admin.ModelAdmin):
+#	list_display = ('power_text', 'hero', 'power_image')
 	
 	#list_filter = ('hero')

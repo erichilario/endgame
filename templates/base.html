@@ -13,10 +13,10 @@
 
 <div class="top-menu">
 	<ul class="navigation">
-	<li><a class="active" href=./><img src="{% static 'whoisalive/images/home.png' %}" height="20px" width="20px"></a></li>
+	<li><a class="active" href=/><img src="{% static 'whoisalive/images/home.png' %}" height="20px" width="20px"></a></li>
 {% if hero_list %}
 	<li class="dropdown">
-		<a href=./whoisalive/>Our Heroes</a>
+		<a href=/whoisalive/>Our Heroes</a>
 		<div class="dropdown-content">
 {% for hero in hero_list %}
 			<a href="{% url 'whoisalive:detail' hero.id %}">{{ hero.hero_name }}</a>
