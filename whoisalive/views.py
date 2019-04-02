@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 
+
 from whoisalive.models import Hero, Power
 
 class IndexView(generic.ListView): #display a list of objects
@@ -31,12 +32,18 @@ class IndexView(generic.ListView): #display a list of objects
 
 class DetailView(generic.DetailView):
 	model = Hero
+	
 	template_name = 'whoisalive/detail.html'
+
 	def get_context_data(self, **kwargs):
 		context = super(DetailView, self).get_context_data(**kwargs)
 		context['hero_list'] = Hero.objects.all()
 		context['power_list'] = Power.objects.order_by('id')
+		#context['power_list'] = Hero.objects.filter(power=self.get_object())
+		#context['power_list'] = Hero.objects.filter(pk=self.kwargs['pk'])
+		#context['power_list'] = Hero.objects.filter(power=self.object)
 		return context
+
 """
 class DetailView(generic.DetailView):
 	num_power = Power.objects.all().count()

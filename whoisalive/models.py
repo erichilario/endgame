@@ -6,6 +6,7 @@ class Hero(models.Model):
 	hero_name = models.CharField(max_length=50, default='The Hero\'s Name')
 	hero_image = models.ImageField(upload_to='static/whoisalive/images', default='static/whoisalive/images/default.png')
 	hero_description = models.TextField(max_length=500, default='Description')
+	hero_color = models.CharField(max_length=7, default='#000000')
 	
 	def __str__(self):
 		return self.hero_name
@@ -30,4 +31,7 @@ class Power(models.Model):
 		return self.power_text
 	
 	class Meta:
-		ordering = ('power_text',)
+		ordering = ('id',)
+
+	def ordered_power_set(self):
+		return self.power_set.all().order_by('id')
