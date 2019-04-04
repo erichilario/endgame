@@ -73,6 +73,7 @@ p {
   /* Set the perspective to 2px. This is essentailly the simulated distance from the viewport to transformed objects.*/
   perspective: 2px;
   background-color: #050409;
+    background-size: cover;
 
 }
 
@@ -221,7 +222,7 @@ ul.navigation li a:hover:not(.active) {
 }
 
 .scroll-down-indicator::before{
-  content: 'SCROLL DOWN ╲╱';
+  content: '╲╱';
   color: #fff;
   position: absolute;
   opacity: 0.7;
@@ -232,7 +233,7 @@ ul.navigation li a:hover:not(.active) {
   line-height: 30px;
   text-align: center;
   border-radius: 10px;
-  bottom: 60px;
+  bottom: 10px;
   left: 50%;
   margin-left: -30px;
   animation: bounce 1s ease infinite;
@@ -278,6 +279,8 @@ text-align: center;
   position: relative;
    bottom: 0;
   color: white;
+  z-index: -2;
+
 }
 
 /* for whoisalive */

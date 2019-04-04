@@ -2,79 +2,44 @@
 {% load static %}
 {% block title %}End Game: Who is alive? - {{ hero.hero_name }}{% endblock %}
 {% block content %}
-<div style="background: url('/{{ hero.hero_image }}'); background-size: cover;">
+<style>
+.wrapper {
+	background: #050409 url('/{{ hero.hero_image }}') no-repeat;
+
+}
+</style>
+<!--<div style="background: url('/{{ hero.hero_image }}'); background-size: cover;">-->
 <h1>{{ hero.hero_name }}</h1>
-<!--      UNCOMMENT THIS FOR V1 COMIC-STYLE
-<div class="detail-wrapper">
-  <div class="news-item hero-item" style="background: url('/{{ hero.hero_image }}');">
-  </div>
-
-
-{% for power in power_list %}
-	
-  <div class="news-item standard-item" style="background: black url('/{{power.power_image}}')"><p class="item-desc">{{power.power_text}}</p></div>
-{% endfor %}
-</div>
--->
 <article class="comic" style="background: {{hero.hero_color}};">
 {% for power in hero.power_set.all %}
-
   <div class="panel" style="background: black url('/{{power.power_image}}') 50% 0; background-size: auto 300px; background-repeat: no-repeat;"  onclick = "toggler{{power.id}}()">
     <p class="text bottom-right">{{power.power_text}}</p>
-    
-
-
   </div>
 {% endfor %}
-<!--
-  <div class="panel">
-    <p class="text top-left">Try resizing...</p>
-    <p class="text bottom-right">...it's responsive</p>
-  </div>
-  <div class="panel">
-    <p class="text top-right">A speech bubble</p>
-  </div>
-  <div class="panel"></div>
-  <div class="panel"></div>
-  <div class="panel"></div>
-  <div class="panel"></div>
-  <div class="panel"></div>
-  <div class="panel">
-    <p class="text bottom-right">THE END</p>
-  </div>
--->
 </article>
 
 {% for power in hero.power_set.all %}
     
     <div style="visibility:hidden; position: absolute;top:10%;left:10%;text-align:center;" id = "{{power.id}}" onclick = "this.style.visibility='hidden';"><img src = "/{{power.power_image}}"></div>
 
-		<!-- JS visibility toggle -->
-	<script type = "text/javascript">
+<!-- JS visibility toggle -->
+<script type = "text/javascript">
 
-	function toggler{{power.id}}() {
-
-
-
-
-		var x = document.getElementById('{{power.id}}');
-		var y = document.querySelectorAll("div[id]");
-		if (x.style.visibility === 'hidden') {
-			for (var i = 0, len = y.length; i < len; i++){
-			    y[i].style.visibility = 'hidden';
-			}
-			x.style.visibility = 'visible';
-
-			
-		} else {
-			x.style.visibility = 'hidden';
+function toggler{{power.id}}() {
+	var x = document.getElementById('{{power.id}}');
+	var y = document.querySelectorAll("div[id]");
+	if (x.style.visibility === 'hidden') {
+		for (var i = 0, len = y.length; i < len; i++){
+		    y[i].style.visibility = 'hidden';
 		}
-
-	    /*document.getElementById('{{power.id}}').style.visibility = 'visible';*/
+		x.style.visibility = 'visible';
+	} else {
+		x.style.visibility = 'hidden';
 	}
-	</script>
+}
+</script>
 {% endfor %}
-	</div>
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 </div>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
 {% endblock %}
