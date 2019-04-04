@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load static %}
+{% url 'data-model' as url %}
+{% block title %}End Game: Who is alive? - Data Model{% endblock %}
+{% block content %}
+<style>
+.wrapper {
+  background: #050409 url('{% static 'whoisalive/images/background.jpg' %}') no-repeat;
+  background-size: cover;
+}
+</style>
+<h1>Data Model</h1>
+<div class="tab">
+<img src="{% static 'whoisalive/images/data-model.png' %}" class="align-img" />
+<p>
+The database is designed to store details of each hero who is alive in the upcoming movie "Avengers: End Game".<br>
+The <em>hero</em> table consists of each hero who has one or more powers which is in turn represented in the <em>power</em> table.<br>
+A power is not strictly a description of a hero's abilities but can also be a trivia tidbit.<br>
+In the context of the design of this website, the collection of each hero's power is represented in a graphical comics-style format.<br>
+Each square then represents one of the powers of this hero in image form and in text form.
+</p>
+<div class="table-text">
+<h2>Hero table</h2>
+<table>
+  <tr class="header">
+    <th>Attribute</th>
+    <th>Data type</th>
+    <th>Description</th>
+    <th>Validation</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>Integer, Primary Key</td>
+    <td>Unique identifier of each hero record</td>
+    <td>Must be an integer</td>
+  </tr>
+  <tr>
+    <td>hero_name</td>
+    <td>Variable Character (50 characters max)</td>
+    <td>The name of the hero</td>
+    <td></td>
+  </tr>  
+  <tr>
+    <td>hero_image</td>
+    <td>Variable Character (100 characters max)</td>
+    <td>An image of the hero that serves as the background in the hero's detail page</td>
+    <td></td>
+  </tr> 
+  <tr>
+    <td>hero_description</td>
+    <td>Text</td>
+    <td>A description of the hero as viewed in the listing page of all heroes</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>hero_color</td>
+    <td>Variable Character (7 characters max)</td>
+    <td>The main color motif associated with the hero; used for changing the border of the comics in the hero's detail page</td>
+    <td></td>
+  </tr> 
+</table>
+<h2>Power table</h2>
+<table>
+  <tr class="header">
+    <th>Attribute</th>
+    <th>Data type</th>
+    <th>Description</th>
+    <th>Validation</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>Integer, Primary Key</td>
+    <td>Unique identifier of each power record</td>
+    <td>Must be an integer</td>
+  </tr>
+  <tr>
+    <td>power_text</td>
+    <td>Text</td>
+    <td>A description of one of the powers of the hero; may also be a trivia tidbit about the hero</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>power_image</td>
+    <td>Variable Character (100 characters max)</td>
+    <td>The filename of the image representing one of the powers of the hero</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>hero_id</td>
+    <td>Integer, Foreign Key</td>
+    <td>The hero that is related to this power record</td>
+    <td></td>
+  </tr>
+</table>
+</div>
+</div>
+
+{% endblock %}

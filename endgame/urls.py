@@ -11,7 +11,7 @@ from .views import DataModelView
 app_name = "whoisalive"
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    #path('admin/', admin.site.urls),
     path('whoisalive/', include('whoisalive.urls')),
     path('', views.IndexView.as_view(), name='index'),
     url(r'^data-model/', DataModelView.as_view(), name='data-model')
