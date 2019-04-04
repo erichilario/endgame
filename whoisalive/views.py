@@ -39,6 +39,8 @@ class DetailView(generic.DetailView):
 		context = super(DetailView, self).get_context_data(**kwargs)
 		context['hero_list'] = Hero.objects.all()
 		context['power_list'] = Power.objects.order_by('id')
+		# workaround for having the "Our Heroes" link to be of css class "active" from base.html
+		context['isitactive'] = "active"
 		#context['power_list'] = Hero.objects.filter(power=self.get_object())
 		#context['power_list'] = Hero.objects.filter(pk=self.kwargs['pk'])
 		#context['power_list'] = Hero.objects.filter(power=self.object)

@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
-
+from django.views.generic import TemplateView
 from whoisalive.models import Hero, Power
 
 class IndexView(generic.ListView): #display a list of objects
@@ -27,6 +27,21 @@ class IndexView(generic.ListView): #display a list of objects
 		# is less than or equal to -aka earlier than or equal to- timezone.now
 		return Hero.objects.all()
 
+#def data_model_view(request):
+#	return render(request, 'datamodel.html')
+
 #def index(request):
 #	
 #	return render(request, 'landingpage.html')
+
+class DataModelView(TemplateView):
+	template_name = 'data-model.html'
+
+#	def get_queryset(self):
+#		return Hero.objects.all()
+	def get_context_data(self, **kwargs):
+		context = super(DataModelView, self).get_context_data(**kwargs)
+		context['hero_list'] = Hero.objects.all()
+		return context
+
+		

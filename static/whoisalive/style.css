@@ -136,6 +136,10 @@ ul.navigation li a:hover:not(.active) {
 	  display: block;
 	}
 
+  li.nav-item {
+    margin-left: 20px;
+  }
+
 .btn { /* not used */
   position: relative;
   top: 50%;
@@ -629,4 +633,42 @@ https://codepen.io/chris22smith/pen/MyBBOe
   background-color: rgba(0,0,0,0.5);
   z-index: 2;
   cursor: pointer;
+}
+
+/* for the data-model */
+
+.align-img {
+/*  display: block;
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+*/
+  width: 50%;
+}
+
+div.table-text {
+  color: #fff;
+  width: 50%;
+  
+}
+
+table, th, td {
+  border: 1px solid gray;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+tr:hover:not(.header){
+  background: red;
+}
+
+
+.tab {
+  margin-left: 3%;
+}
+
+em {
+  font-style: italic;
+  color: red;
 }
