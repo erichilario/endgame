@@ -7,37 +7,14 @@
 <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-
 <main class="wrapper">
-
-<div class="top-menu">
-	<ul class="navigation">
-	<li><a {% if request.path == '/' %} class="active"{% endif %} href=/><img src="{% static 'whoisalive/images/home.png' %}" height="20px" width="20px"></a></li>
-{% if hero_list %}
-	<li class="dropdown">
-		<a href=/whoisalive/ {% if request.path == '/whoisalive/' %} class="active" {% endif %} class="{{ isitactive }}">Our Heroes</a>
-		<div class="dropdown-content">
-{% for hero in hero_list %}
-			<a href="{% url 'whoisalive:detail' hero.id %}">{{ hero.hero_name }}</a>
-{% endfor %}
-		</div>
-	</li>
-	<li class="nav-item"><a href="{% url 'data-model' %}" {% if request.path == '/data-model/' %} class="active" {% endif %}>Data Model</a></li>
-{% else %}
-	<li><a>There be no heroes.</a></li>
-{% endif %}
-	</ul>
-</div>
+{% include "nav.html" %}
 {% block content %}{% endblock %}
-
 {% block footer %}
 <footer class="footer">
-<small>&copy; {% now "Y" %} Eric Hilario for HIT237</small>
+<small>&copy; {% now "Y" %} Eric Hilario (s121102) for HIT237</small>
 </footer>
 {% endblock %}
 </main>
-
-
-
 </body>
 </html>

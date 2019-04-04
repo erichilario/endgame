@@ -1,0 +1,17 @@
+{% load static %}
+<div class="top-menu">
+	<ul class="navigation">
+	<li><a {% if request.path == '/' %} class="active"{% endif %} href=/><img src="{% static 'whoisalive/images/home.png' %}" height="20px" width="20px"></a></li>
+{% if hero_list %}
+	<li class="dropdown nav-item">
+		<a href=/whoisalive/ {% if request.path == '/whoisalive/' %} class="active" {% endif %} class="{{ isitactive }}">Our Heroes</a>
+		<div class="dropdown-content">
+{% for hero in hero_list %}
+			<a href="{% url 'whoisalive:detail' hero.id %}">{{ hero.hero_name }}</a>
+{% endfor %}
+		</div>
+	</li>
+	<li class="nav-item"><a href="{% url 'data-model' %}" {% if request.path == '/data-model/' %} class="active" {% endif %}>Data Model</a></li>
+{% endif %}
+	</ul>
+</div>

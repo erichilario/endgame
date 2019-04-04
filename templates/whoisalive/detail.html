@@ -5,26 +5,27 @@
 <style>
 .wrapper {
 	background: #050409 url('/{{ hero.hero_image }}') no-repeat;
-
 }
 </style>
-
 <h1>{{ hero.hero_name }}</h1>
+
 <article class="comic" style="background: {{hero.hero_color}};">
 {% for power in hero.power_set.all %}
-  <div class="panel" style="background: black url('/{{power.power_image}}') 50% 0; background-size: auto 300px; background-repeat: no-repeat;"  onclick = "toggler{{power.id}}()">
-    <p class="text bottom-right">{{power.power_text}}</p>
-  </div>
+<div class="panel" style="background: black url('/{{power.power_image}}') 50% 0; background-size: auto 300px; background-repeat: no-repeat;" onclick="toggler{{power.id}}()">
+	<p class="text bottom-right">
+		{{power.power_text}}
+	</p>
+</div>
 {% endfor %}
 </article>
 
+<!-- Popup image with JS visibility toggle -->
 {% for power in hero.power_set.all %}
-    
-    <div style="visibility:hidden; position: absolute;top:10%;left:10%;text-align:center;" id = "{{power.id}}" onclick = "this.style.visibility='hidden';"><img src = "/{{power.power_image}}"></div>
+<div style="visibility:hidden; position: absolute;top:10%;left:10%;text-align:center;" id="{{power.id}}" onclick="this.style.visibility='hidden';">
+	<img src="/{{power.power_image}}">
+</div>
 
-<!-- JS visibility toggle -->
-<script type = "text/javascript">
-
+<script type="text/javascript">
 function toggler{{power.id}}() {
 	var x = document.getElementById('{{power.id}}');
 	var y = document.querySelectorAll("div[id]");
@@ -40,6 +41,4 @@ function toggler{{power.id}}() {
 </script>
 {% endfor %}
 </div>
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-
 {% endblock %}

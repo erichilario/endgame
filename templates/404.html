@@ -1,6 +1,22 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}End Game: Who is alive? - {{ hero.hero_name }}{% endblock %}
+{% block title %}End Game: Who is alive? - 404 error{% endblock %}
 {% block content %}
-<h1>404</h1>
+<style>
+	.wrapper {
+		background: #050409 url('{% static 'whoisalive/images/snap404.gif' %}') no-repeat;
+		background-size: 100%;
+		margin-bottom: -50px;
+	}
+	.footer {
+		height: 50px;
+	}
+</style>
+<h2 style="text-align: center;">Aw, snap!</h2>
+{% block footer %}
+<footer class="footer">
+
+</footer>
+{% endblock %}
+
 {% endblock %}

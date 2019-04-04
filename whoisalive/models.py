@@ -25,7 +25,7 @@ class Power(models.Model):
 		on_delete=models.CASCADE,
 		verbose_name="hero power"
 	)
-	power_image = models.ImageField(upload_to='static/whoisalive/pics', default='static/whoisalive/pics/default.png')
+	power_image = models.ImageField(upload_to='static/whoisalive/images', default='static/whoisalive/images/default.png')
 
 	def __str__(self):
 		return self.power_text

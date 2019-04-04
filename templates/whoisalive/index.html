@@ -2,22 +2,28 @@
 {% load static %}
 {% block title %}End Game: Who is alive? - Our Heroes{% endblock %}
 {% block content %}
-
-    <div class="fullscreen-bg">
-        <video loop muted autoplay poster="{% static 'whoisalive/images/background.jpg' %}" class="fullscreen-bg__video">
-            <source src="{% static 'whoisalive/images/video.mp4' %}" type="video/mp4">
-            <source src="{% static 'whoisalive/images/video.webm' %}" type="video/webm">
-        </video>
-    </div>
+<div class="fullscreen-bg">
+    <video loop muted autoplay poster="{% static 'whoisalive/images/background.jpg' %}" class="fullscreen-bg__video">
+    <source src="{% static 'whoisalive/images/video.mp4' %}" type="video/mp4">
+    <source src="{% static 'whoisalive/images/video.webm' %}" type="video/webm">
+    </video>
+</div>
 
 {% if hero_list %}
-<h1>Our Heroes</h1>
     <ul>
-    {% for hero in hero_list %}
-        <a class="hero-list" href="{% url 'whoisalive:detail' hero.id %}"><li onMouseOver="this.style.background='url({% static 'whoisalive/heroes/' %}{{ hero.id }}.jpg) no-repeat -50px -50px'" onMouseOut="this.style.backgroundImage='url()'" class="highlighted-hero"><h3>{{ hero.hero_name }}</h3><p class="hero-desc">{{ hero.hero_description }}</p></li></a>
-    {% endfor %}
+         {% for hero in hero_list %} <a class="hero-list" href="{% url 'whoisalive:detail' hero.id %}">
+        <li onmouseover="this.style.background='url({% static 'whoisalive/images/' %}{{ hero.id }}.jpg) no-repeat -50px -50px'" onmouseout="this.style.backgroundImage='url()'" class="highlighted-hero">
+        <h3>{{ hero.hero_name }}</h3>
+        <p class="hero-desc">
+            {{ hero.hero_description }}
+        </p>
+        </li>
+        </a>
+        {% endfor %}
     </ul>
 {% else %}
-    <p>There be no heroes.</p>
+    <p>
+        There be no heroes.
+    </p>
 {% endif %}
 {% endblock %}
