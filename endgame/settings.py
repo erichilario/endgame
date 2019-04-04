@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'hp%y=$2njmx2acx@me6i3@s4jys*s5
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = [
-    '.pythonanywhere.com',
+    'erichilario.pythonanywhere.com',
     '127.0.0.1',
 ]
 
