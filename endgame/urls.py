@@ -32,4 +32,4 @@ urlpatterns = [
     #path('<int:pk>/', views.DetailView.as_view(), name='detail'),
     #path('<int:hero_id>/')
 
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
